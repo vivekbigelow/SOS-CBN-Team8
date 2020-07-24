@@ -1,0 +1,43 @@
+
+.message-ui{
+    display : grid;
+    gap: 10px;
+    grid-template-columns: 50% 50%;
+    grid-template-areas: 
+    "input input"
+    "button button";
+}
+
+
+.message-input{
+    width: 40vw;
+    height: 10vh;
+    grid-area : input;
+}
+
+.message-buttons{
+    grid-area : button;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 10% 10%;
+}
+
+.message-recipients{
+    display: grid;
+    gap: 10px;
+
+}
+
+.message-recipient{
+    background-color: #E1E3E6;
+    border-radius: 4px;
+    padding: 10px;
+    width: 10vw;
+    text-align: center;
+}
+
+.message-recipient:hover{
+    background-color:#FF4A53;
+    color: white;
+    cursor: pointer;
+}

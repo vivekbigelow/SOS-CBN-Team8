@@ -1,0 +1,52 @@
+<div class="main-content">
+    <h2 class="main-content-title">Your Volunteers</h2>
+
+<app-messages class="main-content-message"></app-messages>
+
+<div class="main-content-search">
+    <input type="text"  class="form-control" [(ngModel)]="searchItem" placeholder="Search">
+    <button *ngIf="searchShow" (click)="search()">Search</button>
+    <button *ngIf="!searchShow" (click)="clear()">Clear</button>
+</div>  
+
+
+<div  class="main-content-table">
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Position Title</th>
+            <th></th>
+        </tr>
+      
+        <tr>
+         <td><input class="form-control" type="text" [(ngModel)]="firstName" placeholder="First Name"></td>
+         <td><input class="form-control" type="text" [(ngModel)]="lastName" placeholder="Last Name"></td>
+         <td><input class="form-control" type="text" [(ngModel)]="phoneNumber" placeholder="Phone Number"></td>
+         <td><input class="form-control" type="text" [(ngModel)]="positionTitle" placeholder="Position Title"></td>
+         <td><button (click)="createVolunteer()">Create</button></td>
+         </tr>
+
+         
+         <tr *ngFor="let volunteer of volunteerList; let i = index" class="volunteer">
+            
+             <td *ngIf="!edit || editIndex != i">{{volunteer.first_name}}</td>
+            <td *ngIf="!edit || editIndex != i">{{volunteer.last_name}}</td>
+            <td *ngIf="!edit || editIndex != i">{{volunteer.phone_number}}</td>
+            <td *ngIf="!edit || editIndex != i">{{volunteer.position_title}}</td>
+            <td *ngIf="!edit || editIndex != i" class="tableButtonEntry"><button (click)="editShow(i)">Edit</button> <button (click)="addRecipient(i)">Add to Message</button><button class="deleteButton" (click)="deleteVolunteer(i)">Delete</button> </td>
+
+            <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editFirstName" placeholder={{volunteer.first_name}}></td>
+            <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editLastName" placeholder={{volunteer.last_name}}></td>
+            <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editPhoneNumber" placeholder={{volunteer.phone_number}}></td>
+            <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editPositionTitle" placeholder={{volunteer.position_title}}></td>
+            <td *ngIf="edit && editIndex == i" class="tableButtonEntry"><button (click)="saveEdit(i)">Save</button> <button (click)="cancelEdit()">Cancel</button></td>
+            
+    
+         </tr>
+        
+
+        
+    </table>
+</div>

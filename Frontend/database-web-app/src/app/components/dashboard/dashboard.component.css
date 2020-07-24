@@ -1,0 +1,25 @@
+
+.dashboard{
+    display:grid;
+    margin-top: 30px;
+    gap: 30px 10px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.dashboard-title{
+    font-size: 20px;
+}
+.dashboard-section{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    width: 50vw;
+}
+
+.dashboard-info{
+    width: 50%;
+    font-size: 20px;
+    background-color: #D8DCE3;
+    padding: 10px 26px;
+    border-radius: 4px;
+}

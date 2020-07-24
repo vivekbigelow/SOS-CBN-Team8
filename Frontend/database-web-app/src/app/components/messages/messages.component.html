@@ -1,0 +1,20 @@
+<div class="main-content-message">
+
+    <button *ngIf="!showMessage" (click)="startMessage()">New Message</button>
+    
+    <div *ngIf="showMessage" class="message-ui">
+        <div class="message-recipients">
+            <div class="message-recipient" *ngFor="let recipient of RECIPIENTS, let i = index" (click)="removeRecipient(i)">
+                <p>{{recipient.first_name}} {{recipient.last_name}}</p>
+            </div>
+        </div>
+        <input  class="message-input" type="text" [(ngModel)]="message.body" placeholder="New message">
+        
+        <div class="message-buttons">
+            <button class="deleteButton" (click)=cancelMessage()>Cancel</button>
+            <button (click)="sendMessage()">Send</button>
+        </div>
+
+    </div>
+
+</div>

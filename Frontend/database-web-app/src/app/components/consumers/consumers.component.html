@@ -1,0 +1,45 @@
+<div class="main-content">
+    <h2 class="main-content-title">Your Consumers</h2>
+       
+    <app-messages class="main-content-message"></app-messages>
+
+    <div class="main-content-search">
+        <input type="text"  class="form-control" [(ngModel)]="searchItem" placeholder="Search">
+        <button *ngIf="searchShow" (click)="search()">Search</button>
+        <button *ngIf="!searchShow" (click)="clear()">Clear</button>
+    </div>  
+    
+    <div  class="main-content-table">
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th></th>
+            </tr>
+          
+            <tr>
+             <td><input type="text" class="form-control" [(ngModel)]="firstName" placeholder="First Name"></td>
+             <td><input type="text" class="form-control" [(ngModel)]="lastName" placeholder="Last Name"></td>
+             <td><input type="text" class="form-control" [(ngModel)]="address" placeholder="Address"></td>
+             <td><input type="text" class="form-control" [(ngModel)]="phoneNumber" placeholder="Phone Number"></td>
+             <td><button (click)="createConsumer()">Create</button></td>
+             </tr>
+    
+             <tr *ngFor="let consumer of consumerList; let i = index" class="volunteer">
+                <td *ngIf="!edit || editIndex != i">{{consumer.first_name}}</td>
+                <td *ngIf="!edit || editIndex != i">{{consumer.last_name}}</td>
+                <td *ngIf="!edit || editIndex != i">{{consumer.address}}</td>
+                <td *ngIf="!edit || editIndex != i">{{consumer.phone_number}}</td>
+                <td *ngIf="!edit || editIndex != i" class="tableButtonEntry"><button (click)="editShow(i)">Edit</button><button>Add to Message</button> <button class="deleteButton" (click)="deleteConsumer(i)">Delete</button> </td>
+    
+                <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editFirstName" placeholder={{consumer.first_name}}></td>
+                <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editLastName" placeholder={{consumer.last_name}}></td>
+                <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editAddress" placeholder={{consumer.address}}></td>
+                <td *ngIf="edit && editIndex == i"><input class="form-control" type="text" [(ngModel)]="editPhoneNumber" placeholder={{consumer.phone_number}}></td>
+                <td *ngIf="edit && editIndex == i" class="tableButtonEntry"><button (click)="saveEdit(i)">Save</button> <button (click)="cancelEdit()">Cancel</button></td>
+             </tr>
+        </table>
+    </div>
+    
