@@ -1,6 +1,6 @@
 # SOS-CBN-Team8
 This is the git repo for S.O.S Challenge CBN Team 8 Submission. 
-To run our website follow these steps:
+To run our website from the command line follow these steps:
 
 1. Clone the project
 `$ git clone git@github.com:tblago18/SOS-CBN-Team8`
